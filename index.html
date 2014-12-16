@@ -41,31 +41,32 @@
 					<div ng-repeat="review in product.reviews">
 						<h4>{{review.stars}} stars</h4>
 						<p>{{review.body}}</p>
-						<cite><em>-{{review.author}}</em></cite>
+						<cite><em>-{{review.author}} on {{review.createdOn | date}}</em></cite>
 					</div>
-					
-					<form name="reviewForm">
+
+					<form name="reviewForm" ng-controller="ReviewController as reviewCtrl"
+						ng-submit="reviewCtrl.addReview(product)">
 						<blockquote>
-							<b>Stars: {{review.stars}}</b>
-							{{review.body}}
-							<cite>by: {{review.author}}</cite>
+							<b>Stars: {{reviewCtrl.review.stars}}</b>
+							{{reviewCtrl.review.body}}
+							<cite>by: {{reviewCtrl.review.author}}</cite>
 						</blockquote>
-						
-						<select ng-model="review.stars">
+					
+						<select ng-model="reviewCtrl.review.stars">
 							<option value="1">1 star</option>
 							<option value="2">2 stars</option>
 							<option value="3">3 stars</option>
 							<option value="4">4 stars</option>
 							<option value="5">5 stars</option>
 						</select>
-						
-						<textarea ng-model="review.body"></textarea>
-						
-						<label>by:</label>
-						<input ng-model="review.author" type="email">
-						<input type="submit" value="Submit">
-					</form>
 					
+						<textarea ng-model="reviewCtrl.review.body"></textarea>
+					
+						<label>by:</label>
+						<input ng-model="reviewCtrl.review.author" type="email">
+						<input type="submit" value="Submit">
+
+				</section>
 				</div>
 			</section>
 			
