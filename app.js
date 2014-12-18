@@ -42,6 +42,13 @@
     };
   });
 
+	app.directive("productSpecs", function() {
+		return {
+			restrict: 'A',
+			templateUrl: 'product-specs.html'
+		}
+	});
+
   var gems = [
     {
       name: 'Azurite',
@@ -52,7 +59,9 @@
       color: '#CCC',
       faces: 14,
       images: [
-				'images/dd1.jpeg'
+        "images/gem-02.gif",
+        "images/gem-05.gif",
+        "images/gem-09.gif"
       ],
       reviews: [{
         stars: 5,
