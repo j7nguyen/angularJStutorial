@@ -6,10 +6,11 @@
 	</head>
 	<body ng-controller="StoreController as store">
 		<div ng-repeat="product in store.products">
-			<h1> {{product.name}}</h1>
-			<h2> ${{product.price}}</h2>
+			<h3 ng-include="'product-title.html'"></h3>
+
 			<p> {{product.description}} </p>
 			<button ng-show="product.canPurchase">Add to Cart</button>
+			
 			<div class="gallery" ng-controller="GalleryController as gallery" ng-show="product.images.length">
 				<img ng-src="{{product.images[gallery.current]}}">
 				<ul class="list-inline-thumbs">
